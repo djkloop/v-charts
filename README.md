@@ -45,8 +45,8 @@
 
 > Chart components based on Vue2.x and Echarts
 
-## 此魔改库版权归原作者
-- 感谢作者提供了这么好的库能在vue中是使用echarts
+## 此魔改库版权归原作者
+- 感谢作者提供了这么好的库能在vue中是使用echarts
 - 此库仅增加了折线图多Y轴功能（如果不需要建议使用源库）
 - 版权还是归属于原作者
 
