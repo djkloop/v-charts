@@ -32,7 +32,7 @@
     English
   </a>
   <span> | </span>
-  <a href="./README_CN.md">
+  <a href="https://github.com/djkloop/v-charts/blob/master/README_CN.md">
     中文
   </a>
 </p>

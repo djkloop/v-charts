@@ -2,7 +2,7 @@
 <img src="./examples/favicon.ico" alt="mark text" width="100" height="100">
 </p>
 
-<h3 align="center">v-charts</h3>
+<h3 align="center">v-charts-multiple-y</h3>
 
 <p align="center">
   <a href="https://travis-ci.org/ElemeFE/v-charts">
@@ -34,7 +34,7 @@
     示例项目
   </a>
   <span> | </span>
-  <a href="./README.md">
+  <a href="https://github.com/djkloop/v-charts/blob/master/README.md">
     English
   </a>
   <span> | </span>
