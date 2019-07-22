@@ -1,3 +1,14 @@
+<a name="1.0.0"></a>
+# [1.0.0](https://github.com/djkloop/v-charts/compare/v1.19.0...v1.0.0) (2019-07-22)
+
+
+### Features
+
+* change css cdn protocol ([f3c31e0](https://github.com/djkloop/v-charts/commit/f3c31e0))
+* change docs cdn protocol ([92e7d5b](https://github.com/djkloop/v-charts/commit/92e7d5b))
+
+
+
 <a name="1.19.0"></a>
 # [1.19.0](https://github.com/ElemeFE/v-charts/compare/v1.18.0...v1.19.0) (2018-11-02)
 
