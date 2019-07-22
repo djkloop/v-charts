@@ -2,7 +2,7 @@
 <img src="./examples/favicon.ico" alt="mark text" width="100" height="100">
 </p>
 
-<h3 align="center">v-charts</h3>
+<h3 align="center">v-charts-multiple-y</h3>
 
 <p align="center">
   <a href="https://travis-ci.org/ElemeFE/v-charts">
@@ -44,6 +44,11 @@
 </p>
 
 > Chart components based on Vue2.x and Echarts
+
+## 此魔改库版权归原作者
+- 此库仅增加了折线图多Y轴功能
+- 版权还是归属于原作者
+
 
 ## Features
 - **Uniform data format:** Use an uniform data format that both convient for frontend and backend, and also easy to create and edit.

@@ -1,6 +1,6 @@
 {
-  "name": "v-charts",
-  "version": "1.19.0",
+  "name": "v-charts-multiple-y",
+  "version": "1.0.0",
   "description": "Vue Echarts Components",
   "main": "lib/index.js",
   "scripts": {
@@ -21,7 +21,7 @@
     "vue",
     "echarts"
   ],
-  "author": "xiguaxigua",
+  "author": "djkloop",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/ElemeFE/v-charts/issues"
