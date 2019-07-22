@@ -6,7 +6,9 @@
         <component
           :is="`ve-${innerType}`"
           :data="d.data"
-          :settings="d.settings">
+          :settings="d.settings"
+          :grid="d.grid"
+          >
         </component>
       </div>
       <div class="code-view">

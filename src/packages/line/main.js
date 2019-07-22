@@ -18,6 +18,7 @@ function getLineSeries (args) {
   const {
     rows,
     axisSite,
+    yAxisSite,
     metrics,
     area,
     stack,
@@ -44,7 +45,7 @@ function getLineSeries (args) {
       dataTemp[item].push([row[dimension[0]], value])
     })
   })
-  metrics.forEach(item => {
+  metrics.forEach((item, idx) => {
     let seriesItem = {
       name: labelMap[item] != null ? labelMap[item] : item,
       type: 'line',
@@ -54,6 +55,9 @@ function getLineSeries (args) {
     if (area) seriesItem.areaStyle = { normal: {} }
     if (axisSite.right) {
       seriesItem.yAxisIndex = ~axisSite.right.indexOf(item) ? 1 : 0
+    } else if (yAxisSite.site) {
+      // 添加对多轴Index
+      seriesItem.yAxisIndex = idx
     }
 
     if (stack && stackMap[item]) seriesItem.stack = stackMap[item]
@@ -70,6 +74,7 @@ function getLineSeries (args) {
 
 function getLineYAxis (args) {
   const {
+    yAxisSite,
     yAxisName,
     yAxisType,
     axisVisible,
@@ -78,6 +83,7 @@ function getLineYAxis (args) {
     max,
     digit
   } = args
+
   const yAxisBase = {
     type: 'value',
     axisTick: {
@@ -86,17 +92,44 @@ function getLineYAxis (args) {
     show: axisVisible
   }
   let yAxis = []
-  for (let i = 0; i < 2; i++) {
+  //
+  let len = 2
+  if (yAxisSite.site) {
+    len = yAxisSite.site.length
+  }
+  for (let i = 0; i < len; i++) {
+    // 添加对offset的支持
+    let offset = 0
+    let position = 'left'
+    if (yAxisSite.offset) {
+      offset = yAxisSite.offset[i]
+    } else {
+      offset = i > 0 ? (i - 1) * 80 : 0
+    }
+    // 第一个右边的不需要offset
+    // 除了第一个在左边其他的都在右边
+    if (i === 1) {
+      position = 'right'
+      offset = 0
+    } else if (i !== 0) {
+      position = 'right'
+    }
+
     if (yAxisType[i]) {
       yAxis[i] = Object.assign({}, yAxisBase, {
         axisLabel: {
           formatter (val) {
             return getFormated(val, yAxisType[i], digit)
           }
-        }
+        },
+        position,
+        offset
       })
     } else {
-      yAxis[i] = Object.assign({}, yAxisBase)
+      yAxis[i] = Object.assign({}, yAxisBase, {
+        position,
+        offset
+      })
     }
     yAxis[i].name = yAxisName[i] || ''
     yAxis[i].scale = scale[i] || false
@@ -160,6 +193,8 @@ export const line = (columns, rows, settings, extra) => {
     yAxisType = ['normal', 'normal'],
     xAxisType = 'category',
     yAxisName = [],
+    // update
+    yAxisSite = {},
     dimension = [columns[0]],
     xAxisName = [],
     axisVisible = true,
@@ -207,6 +242,7 @@ export const line = (columns, rows, settings, extra) => {
     xAxisType
   })
   const yAxis = getLineYAxis({
+    yAxisSite,
     yAxisName,
     yAxisType,
     axisVisible,
@@ -218,6 +254,7 @@ export const line = (columns, rows, settings, extra) => {
   const series = getLineSeries({
     rows,
     axisSite,
+    yAxisSite,
     metrics,
     area,
     stack,

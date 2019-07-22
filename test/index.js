@@ -65,7 +65,7 @@ function testMount (type, comp, item) {
   it(item.name, () => {
     const Ctor = Vue.extend(comp)
     const vm = new Ctor({
-      propsData: { data: item.data, settings: item.settings }
+      propsData: { data: item.data, settings: item.settings, grid: item.grid }
     }).$mount(box)
     expect(vm.$el.classList.contains('ve-' + type)).toEqual(true)
   })

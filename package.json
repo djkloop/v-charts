@@ -15,7 +15,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ElemeFE/v-charts.git"
+    "url": "git+https@github.com:djkloop/v-charts.git"
   },
   "keywords": [
     "vue",
@@ -26,7 +26,7 @@
   "bugs": {
     "url": "https://github.com/ElemeFE/v-charts/issues"
   },
-  "homepage": "https://v-charts.js.org",
+  "homepage": "https://github.com/djkloop/v-charts",
   "peerDependencies": {
     "echarts": ">3.0.0",
     "vue": ">2.0.0"
