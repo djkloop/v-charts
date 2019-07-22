@@ -5,23 +5,17 @@
 <h3 align="center">v-charts-multiple-y</h3>
 
 <p align="center">
-  <a href="https://travis-ci.org/ElemeFE/v-charts">
-    <img src="https://travis-ci.org/ElemeFE/v-charts.svg?branch=master" alt="Build Status">
+  <a href="https://npmjs.org/package/v-charts-multiple-y">
+    <img src="http://img.shields.io/npm/dm/v-charts-multiple-y.svg" alt="NPM downloads">
   </a>
-  <a href="https://npmjs.org/package/v-charts">
-    <img src="http://img.shields.io/npm/dm/v-charts.svg" alt="NPM downloads">
-  </a>
-  <a href="https://www.npmjs.org/package/v-charts">
-    <img src="https://img.shields.io/npm/v/v-charts.svg" alt="Npm package">
+  <a href="https://www.npmjs.org/package/v-charts-multiple-y">
+    <img src="https://img.shields.io/npm/v/v-charts-multiple-y.svg" alt="Npm package">
   </a>
   <a>
     <img src="https://img.shields.io/badge/language-javascript-yellow.svg" alt="Language">
   </a>
   <a>
     <img src="https://img.shields.io/badge/license-MIT-000000.svg" alt="License">
-  </a>
-  <a href="https://gitter.im/ElemeFE/v-charts?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge">
-    <img src="https://badges.gitter.im/ElemeFE/v-charts.svg" alt="Join the chat">
   </a>
 </p>
 
@@ -45,10 +39,10 @@
 
 > Chart components based on Vue2.x and Echarts
 
-## 此魔改库版权归原作者
-- 感谢作者提供了这么好的库能在vue中是使用echarts
-- 此库仅增加了折线图多Y轴功能（如果不需要建议使用源库）
-- 版权还是归属于原作者
+# This magic change library copyright belongs to the original author
+- Thanks to the author for providing such a good library to use echarts in vue
+- This library only adds a multi-axis function for the line chart (if you do not need to use the source library)
+- Copyright still belongs to the original author
 
 
 ## Features
@@ -63,7 +57,7 @@ Modern browsers and Internet Explorer 10+, include pc and mobile browser.
 ## Install
 
 ```
-npm i v-charts echarts -S
+npm i v-charts-multiple-y echarts -S
 ```
 
 ## Start
@@ -82,15 +76,30 @@ export default {
   data () {
     return {
       chartData: {
-        columns: ['date', 'PV'],
+        columns: ['date', 'age', 'balance', 'people'],
         rows: [
-          { 'date': '01-01', 'PV': 1231 },
-          { 'date': '01-02', 'PV': 1223 },
-          { 'date': '01-03', 'PV': 2123 },
-          { 'date': '01-04', 'PV': 4123 },
-          { 'date': '01-05', 'PV': 3123 },
-          { 'date': '01-06', 'PV': 7123 }
+          { 'date': '01-01', 'age': 1231, 'balance': '999', 'people': '578' },
+          { 'date': '01-02', 'age': 1223, 'balance': '781', 'people': '1213' },
+          { 'date': '01-03', 'age': 2123, 'balance': '321', 'people': '213' },
+          { 'date': '01-04', 'age': 4123, 'balance': '654', 'people': '2312' },
+          { 'date': '01-05', 'age': 3123, 'balance': '972', 'people': '1233' },
+          { 'date': '01-06', 'age': 7123, 'balance': '124', 'people': '2313' }
         ]
+      }，
+      /*
+        yAxisSite
+          - site[Array<string>]: Corresponds to columns
+            Note: The first one of the array is the left number axis / the second one is the right first one, and the others are sorted one by one.
+          - offset[Array<number>]: Corresponds to columns
+            Note: The first one of the array is the left number axis / the second one is the right first one, and the others are sorted one by one.
+        yAxisName Keep consistent with the official website
+      */
+      settings: {
+        yAxisSite: {
+          site: ['age', 'balance', 'people'],
+          offset: [0, 0, 80]
+        },
+        yAxisName: ['age', 'balance', 'people']
       }
     }
   }
